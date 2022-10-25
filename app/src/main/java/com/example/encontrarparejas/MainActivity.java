@@ -15,6 +15,7 @@ import java.util.Collections;
 public class MainActivity extends AppCompatActivity {
     //Creamos el array que guardara las imagenes
     ArrayList<Integer> imagenes = new ArrayList<>();
+    //Creamos el array que guardara las parejas ya resueltas
     ArrayList<Integer> listaParejas = new ArrayList<>();
     Button reiniciar;
     ImageButton b1, b2,b3, b4, b5, b6;
