@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/b1"
+                android:layout_width="50dp"
+                android:layout_height="300dp"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:onClick="cambiarImagen"
+                android:src="@drawable/baraja" />
+
+            <ImageButton
+                android:id="@+id/b2"
+                android:layout_width="50dp"
+                android:layout_height="300dp"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:onClick="cambiarImagen"
+                android:src="@drawable/baraja" />
+
+            <ImageButton
+                android:id="@+id/b3"
+                android:layout_width="50dp"
+                android:layout_height="300dp"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:onClick="cambiarImagen"
+                android:src="@drawable/baraja" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/b4"
+                android:layout_width="50dp"
+                android:layout_height="300dp"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:onClick="cambiarImagen"
+                app:srcCompat="@drawable/baraja" />
+
+            <ImageButton
+                android:id="@+id/b5"
+                android:layout_width="50dp"
+                android:layout_height="300dp"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:onClick="cambiarImagen"
+                app:srcCompat="@drawable/baraja" />
+
+            <ImageButton
+                android:id="@+id/b6"
+                android:layout_width="50dp"
+                android:layout_height="300dp"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:onClick="cambiarImagen"
+                app:srcCompat="@drawable/baraja" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/reinicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="reiniciar"
+        android:text="Reiniciar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>
