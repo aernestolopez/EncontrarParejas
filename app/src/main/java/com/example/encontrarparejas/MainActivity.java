@@ -14,7 +14,8 @@ import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
     //Creamos el array que guardara las imagenes
-    ArrayList<Integer> mylist = new ArrayList<Integer>();
+    ArrayList<Integer> imagenes = new ArrayList<>();
+    ArrayList<Integer> listaParejas = new ArrayList<>();
     Button reiniciar;
     ImageButton b1, b2,b3, b4, b5, b6;
     ImageButton ib;
@@ -35,72 +36,82 @@ public class MainActivity extends AppCompatActivity {
         b6=findViewById(R.id.b6);
 
         //añadimos las imagenes
-        mylist.add(R.drawable.alex);
-        mylist.add(R.drawable.felipe);
-        mylist.add(R.drawable.chincheto);
-        mylist.add(R.drawable.alex);
-        mylist.add(R.drawable.felipe);
-        mylist.add(R.drawable.chincheto);
+        imagenes.add(R.drawable.alex);
+        imagenes.add(R.drawable.felipe);
+        imagenes.add(R.drawable.chincheto);
+        imagenes.add(R.drawable.alex);
+        imagenes.add(R.drawable.felipe);
+        imagenes.add(R.drawable.chincheto);
         //barajamos el array
-        Collections.shuffle(mylist);
+        Collections.shuffle(imagenes);
 
     }
     public void reiniciar(View view) {
+        Context context = getApplicationContext();
+        CharSequence text = "Reiniciando";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
         recreate();
+
     }
 
     public void cambiarImagen(View view){
         //Obtiene el id del boton pulsado y cambia la imagen por una del array
         if(view.getId()==b1.getId()) {
-            b1.setImageResource(mylist.get(0));
-            jugar(b1,mylist.get(0));
+            b1.setImageResource(imagenes.get(0));
+            jugar(b1, imagenes.get(0));
         }
         else if(view.getId()==b2.getId()) {
-            b2.setImageResource(mylist.get(1));
-            jugar(b2,mylist.get(1));
+            b2.setImageResource(imagenes.get(1));
+            jugar(b2, imagenes.get(1));
         }
         else if(view.getId()==b3.getId()) {
-            b3.setImageResource(mylist.get(2));
-            jugar(b3,mylist.get(2));
+            b3.setImageResource(imagenes.get(2));
+            jugar(b3, imagenes.get(2));
         }
         else if(view.getId()==b4.getId()) {
-            b4.setImageResource(mylist.get(3));
-            jugar(b4,mylist.get(3));
+            b4.setImageResource(imagenes.get(3));
+            jugar(b4, imagenes.get(3));
         }
         else if(view.getId()==b5.getId()) {
-            b5.setImageResource(mylist.get(4));
-            jugar(b5,mylist.get(4));
+            b5.setImageResource(imagenes.get(4));
+            jugar(b5, imagenes.get(4));
         }
         else if(view.getId()==b6.getId()) {
-            b6.setImageResource(mylist.get(5));
-            jugar(b6,mylist.get(5));
+            b6.setImageResource(imagenes.get(5));
+            jugar(b6, imagenes.get(5));
         }
     }
 
-    public void jugar(ImageButton b,int foto) {
-        //controlamos la logica del programa donde mantendremos las fotos correctas o la ultima dada
-        if(acabado!=3) {
+    public void jugar(ImageButton b, int imagenes) {
+        for (int i = 0; i < listaParejas.size(); i++) {
+            if (listaParejas.get(i) == imagenes) acabado = 1;
+        }
+        if (acabado != 1) {
             if (i == 0) {
                 ib = b;
-                ultimaFoto = foto;
+                ultimaFoto = imagenes;
                 i++;
             } else if (i == 1) {
-                if (ultimaFoto == foto) {
+                if (ultimaFoto == imagenes) {
                     i = 0;
-                    acabado++;
+                    listaParejas.add(imagenes);
                 } else {
                     ib.setImageResource(R.drawable.baraja);
                     ib = b;
-                    ultimaFoto = foto;
+                    ultimaFoto = imagenes;
                 }
             }
-        }else{
+        }if(listaParejas.size()==3){
             Context context = getApplicationContext();
-            CharSequence text = "Has ganado!";
+            CharSequence text = "¡Has Ganado!";
             int duration = Toast.LENGTH_SHORT;
 
             Toast toast = Toast.makeText(context, text, duration);
             toast.show();
         }
+        acabado = 0;
     }
 }
